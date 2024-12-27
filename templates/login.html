@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<title>Login Page</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="mt-4 bg-body-tertiary border rounded p-3 d-flex justify-content-center">
+    <div class="w-50">
+        <p class="fs-3 text-center">Login</p>
+        <form method="post" class="d-flex flex-column gap-3">
+            {% csrf_token %}
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+                <input required name="username" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <input required name="password" type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
+            {% if error %}
+            <p class="text-danger m-0">{{ error }}</p>
+            {% endif %}
+            <button type="submit" class="btn btn-primary">Login</button>
+            <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+        </form>
+    </div>
+</div>
+{% endblock content %}
