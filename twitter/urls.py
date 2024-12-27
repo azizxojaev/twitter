@@ -2,5 +2,6 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('', home_page, name='home')
+    path('', home_page, name='home'),
+    path('create/', create_post_page, name='create'),
 ]
