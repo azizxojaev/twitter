@@ -7,7 +7,17 @@
 
 
 {% block content %}
-<div class="mt-4 bg-body-tertiary border rounded p-4">
-    Hi
+<div class="mt-4 bg-body-tertiary border rounded p-3">
+    {% if posts %}
+    <p class="fs-4 fw-bold m-0">All Posts</p>
+    {% for p in posts %}
+    <div class="bg-white border rounded p-3 text-break mt-3">
+        {{ p.text }}
+    </div>
+    {% endfor %}
+
+    {% else %}
+    No Posts Found
+    {% endif %}
 </div>
 {% endblock content %}
