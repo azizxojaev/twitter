@@ -61,6 +61,10 @@ def my_post_page(request):
         return render(request, 'my_posts.html', context=context)
     else:
         return redirect('register')
+    
+def delete_post(request, id):
+    Post.objects.get(id=id).delete()
+    return redirect('my_posts')
 
 def register_page(request):
     if request.user.is_authenticated:

@@ -15,6 +15,9 @@
     {% for p in posts %}
     <div class="bg-white border rounded p-3 text-break mt-3">
         <p class="m-0">{{ p.text }}</p>
+        <div class="d-flex justify-content-end">
+          <a href="{% url 'delete' p.id %}" type="button" class="btn btn-danger">Delete</a>
+        </div>
     </div>
     {% endfor %}
     <nav aria-label="Page navigation example">
