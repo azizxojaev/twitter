@@ -8,6 +8,14 @@
 
 {% block content %}
 <div class="mt-4 bg-body-tertiary border rounded p-3">
-    Create Post
+    <form method="post">
+        {% csrf_token %}
+        <p class="fs-4 fw-bold">Add Post</p>
+        <div class="form-floating">
+            <textarea required name="text" class="form-control" placeholder="Write a text here" id="floatingTextarea2" style="height: 200px; resize: none;"></textarea>
+            <label for="floatingTextarea2">Text</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Add Post</button>
+    </form>
 </div>
 {% endblock content %}

@@ -2,39 +2,40 @@
 
 
 {% block title %}
-<title>Home Page</title>
+<title>My Posts Page</title>
 {% endblock %}
 
 
 {% block content %}
 <div class="mt-4 bg-body-tertiary border rounded p-3">
+    <p class="fs-4">Your Username: <b>{{ request.user }}</b></p>
+
     {% if posts %}
-    <p class="fs-4 m-0">All Posts</p>
+    <p class="fs-4 fw-bold m-0">Your Posts</p>
     {% for p in posts %}
     <div class="bg-white border rounded p-3 text-break mt-3">
-        <p class="mb-1 text-secondary">Author: {{ p.user }}</p>
         <p class="m-0">{{ p.text }}</p>
     </div>
     {% endfor %}
     <nav aria-label="Page navigation example">
         <ul class="pagination mt-4 mb-0 justify-content-center">
           <li class="page-item {% if not posts.has_previous %}disabled{% endif %}">
-            <a class="page-link" href="/?page={{ prev_and_next_page.0 }}" aria-label="Previous">
+            <a class="page-link" href="/my-posts/?page={{ prev_and_next_page.0 }}" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
           {% for p in paginator.page_range %}
-          <li class="page-item {% if current_page == p %}active{% endif %}"><a class="page-link" href="/?page={{ p }}">{{ p }}</a></li>
+          <li class="page-item {% if current_page == p %}active{% endif %}"><a class="page-link" href="/my-posts/?page={{ p }}">{{ p }}</a></li>
           {% endfor %}
           <li class="page-item {% if not posts.has_next %}disabled{% endif %}">
-            <a class="page-link" href="/?page={{ prev_and_next_page.1 }}" aria-label="Next">
+            <a class="page-link" href="/my-posts/?page={{ prev_and_next_page.1 }}" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
             </a>
           </li>
         </ul>
     </nav>
     {% else %}
-    No Posts Found
+    You Don't Have Posts
     {% endif %}
 </div>
 {% endblock content %}

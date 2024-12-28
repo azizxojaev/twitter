@@ -6,7 +6,7 @@
           <a class="nav-link {% if page == 'home' %}fw-bold active{% endif %}" aria-current="page" href="{% url 'home' %}">All Posts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">My Posts</a>
+          <a class="nav-link {% if page == 'my_posts' %}fw-bold active{% endif %}" aria-current="page" href="{% url 'my_posts' %}">My Posts</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {% if page == 'create' %}fw-bold active{% endif %}" aria-current="page" href="{% url 'create' %}">Add Post</a>
